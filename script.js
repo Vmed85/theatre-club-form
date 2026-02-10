@@ -14,22 +14,23 @@ function toggleTeam(hasExperience) {
 }
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); // ⛔ stop normal submit
+  e.preventDefault();
 
   const formData = new FormData(form);
 
   fetch("https://script.google.com/macros/s/AKfycbyQKI2QOm9DD5hLDnqat5-ZT3HtSAVEaAJgFvjS1bkjrOVPDeUEkmM9nDn7Xp_27iOu/exec", {
-  method: "POST",
-  body: formData,
-  mode: "no-cors"الحل
-})
-.then(() => {
-  alert("✅ Form sent successfully!");
-  form.reset();
-  document.getElementById("experienceBox").style.display = "none";
-  document.getElementById("motivationBox").style.display = "none";
-})
-.catch(err => {
-  alert("❌ Error sending form");
-  console.error(err);
+    method: "POST",
+    body: formData,
+    mode: "no-cors" // الحل
+  })
+  .then(() => {
+    alert("✅ Form sent successfully!");
+    form.reset();
+    document.getElementById("experienceBox").style.display = "none";
+    document.getElementById("motivationBox").style.display = "none";
+  })
+  .catch(err => {
+    alert("❌ Error sending form");
+    console.error(err);
+  });
 });
